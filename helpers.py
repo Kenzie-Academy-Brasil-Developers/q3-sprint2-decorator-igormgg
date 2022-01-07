@@ -1,6 +1,6 @@
 # Desenvolva sua funções auxiliares para processamento de arquivo txt aqui
-from os import getenv
 from flask import request
+from os import getenv
 
 FILENAME = getenv("DATABASE_FILENAME")
 
@@ -23,8 +23,8 @@ def find_users():
 def write_user():
     try:
         with open(f'./{FILENAME}', 'a') as f:
-            response = request.json
-            user_to_register = f'\n{response["username"]}:{response["password"]}'
+            requirement = request.json
+            user_to_register = f'\n{requirement["username"]}:{requirement["password"]}'
             f.write(user_to_register)
 
             return 'User registered', 201
